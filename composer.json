@@ -1,20 +1,26 @@
 {
-    "name": "ismail0234/trendyol-php-api",
-    "description": "Trendyol PHP API",
-    "type": "library",
-    "keywords": ["trendyol", "eticaret", "php api", "trendyol php api", "pazaryeri"],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "İsmail Satilmiş",
-            "email": "ismaiil_0234@hotmail.com"
-        }
-    ],
-    "require": {},
-    "autoload": {
-        "psr-4": {
-            "IS\\PazarYeri\\Trendyol\\": "IS/PazarYeri/Trendyol"
-        }
-    },
-    "minimum-stability": "stable"
+  "name": "rdtvaacar/trendyol-php-api",
+  "description": "Trendyol PHP API",
+  "type": "library",
+  "keywords": [
+    "trendyol",
+    "eticaret",
+    "php api",
+    "trendyol php api",
+    "pazaryeri"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Aydın ACAR",
+      "email": "acarbey15@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Rdtvaacar\\PazarYeri\\Trendyol\\": "Rdtvaacar/PazarYeri/Trendyol"
+    }
+  },
+  "minimum-stability": "stable"
 }
