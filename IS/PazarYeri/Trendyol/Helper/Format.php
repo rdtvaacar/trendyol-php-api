@@ -1,6 +1,6 @@
 <?php
 
-namespace IS\PazarYeri\Trendyol\Helper;
+namespace Rdtvaacar\PazarYeri\Trendyol\Helper;
 
 Class Format
 {
@@ -22,9 +22,9 @@ Class Format
 		if ($query === true) {
 			$query = $data;
 		}
-		
+
 		$responseList = array();
-		foreach ($query as $key => $value) 
+		foreach ($query as $key => $value)
 		{
 			if (!isset($data[$key])) {
 				continue;
@@ -51,12 +51,12 @@ Class Format
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
 	 * @param string $apiUrl
-	 * @return array 
+	 * @return array
 	 *
 	 */
 	public static function getUrlSpecialParameters($apiUrl)
 	{
-		if(preg_match_all('@\{(.*?)\}@si', $apiUrl, $output)) 
+		if(preg_match_all('@\{(.*?)\}@si', $apiUrl, $output))
 		{
 			return $output[1];
 		}

@@ -1,8 +1,8 @@
 <?php
 
-namespace IS\PazarYeri\Trendyol\Services;
+namespace Rdtvaacar\PazarYeri\Trendyol\Services;
 
-use IS\PazarYeri\Trendyol\Helper\Database;
+use Rdtvaacar\PazarYeri\Trendyol\Helper\Database;
 
 Class WebhookService extends Database
 {
@@ -12,7 +12,7 @@ Class WebhookService extends Database
 	 * Trendyol Üzerinde yeni siparişlerin sorgulanacağı aralık (saniye)
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
-	 * @var int 
+	 * @var int
 	 *
 	 */
 	protected $requestTime = 180;
@@ -22,7 +22,7 @@ Class WebhookService extends Database
 	 * Son yapılan istek zamanı
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
-	 * @var int 
+	 * @var int
 	 *
 	 */
 	protected $requestEndTime;
@@ -32,7 +32,7 @@ Class WebhookService extends Database
 	 * İlk başlama zamanı
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
-	 * @var int 
+	 * @var int
 	 *
 	 */
 	protected $startedTime;
@@ -42,7 +42,7 @@ Class WebhookService extends Database
 	 * Sipariş listesinden kaç adet sipariş getirileceği.
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
-	 * @var int 
+	 * @var int
 	 *
 	 */
 	protected $orderMaxResult = 50;
@@ -52,7 +52,7 @@ Class WebhookService extends Database
 	 * İlk kurulum için geçerli geçmiş tarih
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
-	 * @var int 
+	 * @var int
 	 *
 	 */
 	protected $firstSetupDate;
@@ -104,20 +104,20 @@ Class WebhookService extends Database
 	public function orderConsume($work)
 	{
 
-		while (true) 
+		while (true)
 		{
 			if (time() >= $this->requestEndTime)
 			{
 
 				$this->requestEndTime = time() + $this->requestTime;
 				$this->setting        = $this->selectSettings();
-				foreach ($this->getDateBetweenWeeks($this->setting->lastOrderDate) as $date) 
+				foreach ($this->getDateBetweenWeeks($this->setting->lastOrderDate) as $date)
 				{
 					$orderList = $this->getOrderList($date['startDate'], $date['endDate']);
 					$this->callEvent($orderList, $work);
 
-					for ($pageId = 1; $pageId < $orderList['maxPage']; $pageId++) 
-					{ 
+					for ($pageId = 1; $pageId < $orderList['maxPage']; $pageId++)
+					{
 						$orderList = $this->getOrderList($date['startDate'], $date['endDate'], $pageId);
 						$this->callEvent($orderList, $work);
 					}
@@ -138,7 +138,7 @@ Class WebhookService extends Database
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
 	 * @param int $startDate
-	 * @return array 
+	 * @return array
 	 *
 	 */
 	protected function getDateBetweenWeeks($startDate)
@@ -148,7 +148,7 @@ Class WebhookService extends Database
 		if ($maxWeek <= 1) {
 			return array(array('startDate' => time() - self::TWO_WEEK, 'endDate' => time()));
 		}
-	
+
 		if ($maxWeek > 20) {
 			$maxWeek = 20;
 		}
@@ -171,7 +171,7 @@ Class WebhookService extends Database
 	 * @param int $startDate
 	 * @param int $endDate
 	 * @param int $pageId = 0
-	 * @return array 
+	 * @return array
 	 *
 	 */
 	protected function getOrderList($startDate, $endDate, $pageId = 0)
@@ -204,7 +204,7 @@ Class WebhookService extends Database
 	 */
 	protected function callEvent($orderList, $work)
 	{
-		foreach ($orderList['datas'] as $order) 
+		foreach ($orderList['datas'] as $order)
 		{
 			$dborder = $this->selectOrder($order->orderNumber);
 			if (isset($dborder->orderid)) {
@@ -228,18 +228,18 @@ Class WebhookService extends Database
 	 * Trendyol Siparişlerinin en kadar hızlı tüketileceği.
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
-	 * @param string $mode  
+	 * @param string $mode
 	 *
 	 */
 	public function setRequestMode($mode)
 	{
 
-		switch ($mode) 
+		switch ($mode)
 		{
 			case 'slow'  : $this->requestTime = 300; break;
 			case 'fast'  : $this->requestTime = 60; break;
 			case 'vfast' : $this->requestTime = 30; break;
-			case 'medium': 
+			case 'medium':
 			default:
 				$this->requestTime = 180;
 			break;
@@ -252,18 +252,18 @@ Class WebhookService extends Database
 	 * Trendyol Sipariş listesinde kaç adet siparişin getirileceği
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
-	 * @param string $mode 
+	 * @param string $mode
 	 *
 	 */
 	public function setResultMode($mode)
 	{
 
-		switch ($mode) 
+		switch ($mode)
 		{
 			case 'vmax'  	: $this->orderMaxResult = 200; break;
 			case 'max' 		: $this->orderMaxResult = 150; break;
 			case 'min'		: $this->orderMaxResult = 50; break;
-			case 'medium'	: 
+			case 'medium'	:
 			default:
 				$this->orderMaxResult = 100;
 			break;

@@ -1,8 +1,8 @@
 <?php
 
-namespace IS\PazarYeri\Trendyol\Services;
+namespace Rdtvaacar\PazarYeri\Trendyol\Services;
 
-use IS\PazarYeri\Trendyol\Helper\Request;
+use Rdtvaacar\PazarYeri\Trendyol\Helper\Request;
 
 Class CategoryService extends Request
 {
@@ -34,12 +34,12 @@ Class CategoryService extends Request
 	 * Trendyol üzerindeki bütün kategorileri getirir.
 	 * createProduct servisine yapılacak isteklerde gönderilecek categoryId
 	 * bilgisi bu servis kullanılarak alınacaktır.
-	 * 
-	 * createProduct yapmak için en alt seviyedeki kategori ID bilgisi kullanılmalıdır. 
+	 *
+	 * createProduct yapmak için en alt seviyedeki kategori ID bilgisi kullanılmalıdır.
 	 * Seçtiğiniz kategorinin alt kategorileri var ise bu kategori bilgisi ile ürün aktarımı yapamazsınız.
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
-	 * @return array 
+	 * @return array
 	 *
 	 */
 	public function getCategoryTree()
@@ -51,15 +51,15 @@ Class CategoryService extends Request
 	/**
 	 *
 	 * Trendyol üzerindeki kategorinin özelliklerini döndürür.
-	 * createProduct servisine yapılacak isteklerde gönderilecek attributes bilgileri 
+	 * createProduct servisine yapılacak isteklerde gönderilecek attributes bilgileri
 	 * ve bu bilgilere ait detaylar bu servis kullanılarak alınacaktır.
-	 * 
-	 * createProduct yapmak için en alt seviyedeki kategori ID bilgisi kullanılmalıdır. 
+	 *
+	 * createProduct yapmak için en alt seviyedeki kategori ID bilgisi kullanılmalıdır.
 	 * Seçtiğiniz kategorinin alt kategorileri var ise (leaf:true) bu kategori bilgisi ile ürün aktarımı yapamazsınız.
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
 	 * @param int $categoryId
-	 * @return array 
+	 * @return array
 	 *
 	 */
 	public function getCategoryAttributes($categoryId)

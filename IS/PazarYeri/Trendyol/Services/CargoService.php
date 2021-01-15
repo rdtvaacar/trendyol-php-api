@@ -1,8 +1,8 @@
 <?php
 
-namespace IS\PazarYeri\Trendyol\Services;
+namespace Rdtvaacar\PazarYeri\Trendyol\Services;
 
-use IS\PazarYeri\Trendyol\Helper\Request;
+use Rdtvaacar\PazarYeri\Trendyol\Helper\Request;
 
 Class CargoService extends Request
 {
@@ -33,14 +33,14 @@ Class CargoService extends Request
 	 *
 	 * Trendyol üzerindeki bütün kargo şirketlerini getirir.
      *
-	 * createProduct servisine yapılacak isteklerde gönderilecek kargo firma bilgileri 
+	 * createProduct servisine yapılacak isteklerde gönderilecek kargo firma bilgileri
 	 * ve bu bilgilere ait ID değerleri bu servis kullanılarak alınacaktır.
 	 *
-	 * Ürün gönderimi yaparken gönderdiğiniz kargo şirketleri, Trendyol sözleşmenizde 
+	 * Ürün gönderimi yaparken gönderdiğiniz kargo şirketleri, Trendyol sözleşmenizde
 	 * onayladığınız kargo firmasından farklı olmamalıdır. Bu durum ürünlerinizi yayına çıkmasını engelleyecektir.
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
-	 * @return array 
+	 * @return array
 	 *
 	 */
 	public function getProviders()
@@ -53,16 +53,16 @@ Class CargoService extends Request
 	 *
 	 * Trendyol üzerindeki tedarikçi adreslerinizi getirir.
      *
-	 * createProduct V2 servisine yapılacak isteklerde gönderilecek sipariş ve sevkiyat kargo 
-	 * firma bilgileri ve bu bilgilere ait ID değerleri bu servis kullanılarak alınacaktır. 
+	 * createProduct V2 servisine yapılacak isteklerde gönderilecek sipariş ve sevkiyat kargo
+	 * firma bilgileri ve bu bilgilere ait ID değerleri bu servis kullanılarak alınacaktır.
 	 *
 	 * "SATICI BAŞVURU SÜRECİM" tam olarak tamamlanmadı ise bu servisi kullanmamanız gerekir.
 	 *
-	 * Ürün gönderimi yaparken adresi ID değerlerini kontrol etmelisiniz. Hatalı gönderim 
+	 * Ürün gönderimi yaparken adresi ID değerlerini kontrol etmelisiniz. Hatalı gönderim
 	 * yapılması halinde ürün aktarımı gerçekleşmeyecektir.
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
-	 * @return array 
+	 * @return array
 	 *
 	 */
 	public function getSuppliersAddresses()

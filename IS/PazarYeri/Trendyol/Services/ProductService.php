@@ -1,8 +1,8 @@
 <?php
 
-namespace IS\PazarYeri\Trendyol\Services;
+namespace Rdtvaacar\PazarYeri\Trendyol\Services;
 
-use IS\PazarYeri\Trendyol\Helper\Request;
+use Rdtvaacar\PazarYeri\Trendyol\Helper\Request;
 
 Class ProductService extends Request
 {
@@ -34,7 +34,7 @@ Class ProductService extends Request
 	 * Trendyol üzerindeki ürünleri filtrelemek için kullanılır.
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
-	 * @return array 
+	 * @return array
 	 *
 	 */
 	public function filterProducts($data = array())
@@ -52,5 +52,20 @@ Class ProductService extends Request
 
 		return $this->getResponse($query, $data);
 	}
+    public function createPorudct($data = array())
+    {
+
+        $query = array(
+            'approved'      => '',
+            'barcode'       => '',
+            'startDate'     => array('format' => 'unixTime'),
+            'endDate'       => array('format' => 'unixTime'),
+            'page'          => '',
+            'dateQueryType' => array('required' => array('CREATED_DATE' , 'LAST_MODIFIED_DATE')),
+            'size'          => ''
+        );
+
+        return $this->getResponse($query, $data);
+    }
 }
 

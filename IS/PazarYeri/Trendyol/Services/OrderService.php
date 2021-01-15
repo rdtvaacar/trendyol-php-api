@@ -1,8 +1,8 @@
 <?php
 
-namespace IS\PazarYeri\Trendyol\Services;
+namespace Rdtvaacar\PazarYeri\Trendyol\Services;
 
-use IS\PazarYeri\Trendyol\Helper\Request;
+use Rdtvaacar\PazarYeri\Trendyol\Helper\Request;
 
 Class OrderService extends Request
 {
@@ -35,7 +35,7 @@ Class OrderService extends Request
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
 	 * @param string $degisken
-	 * @return string 
+	 * @return string
 	 *
 	 */
 	public function orderList($data = array())
@@ -55,6 +55,6 @@ Class OrderService extends Request
 
 		return $this->getResponse($query, $data);
 	}
-	
+
 
 }

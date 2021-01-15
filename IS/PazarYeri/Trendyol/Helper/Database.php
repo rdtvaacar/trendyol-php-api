@@ -1,6 +1,6 @@
 <?php
 
-namespace IS\PazarYeri\Trendyol\Helper;
+namespace Rdtvaacar\PazarYeri\Trendyol\Helper;
 
 Class Database
 {
@@ -96,7 +96,7 @@ Class Database
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
 	 * @param int $orderId
-	 * @return bool 
+	 * @return bool
 	 *
 	 */
 	public function updateStartDate($startDate)
@@ -111,7 +111,7 @@ Class Database
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
 	 * @param int $orderId
-	 * @return int 
+	 * @return int
 	 *
 	 */
 	public function addOrder($orderId)
@@ -129,7 +129,7 @@ Class Database
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
 	 * @param int $orderId
-	 * @return object 
+	 * @return object
 	 *
 	 */
 	public function selectOrder($orderId)
@@ -146,7 +146,7 @@ Class Database
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
 	 * @param int $orderId
-	 * @return bool 
+	 * @return bool
 	 *
 	 */
 	public function finishOrder($orderId)
@@ -161,7 +161,7 @@ Class Database
 	 * WebHookService Ayarlarını getirir.
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
-	 * @return object 
+	 * @return object
 	 *
 	 */
 	public function selectSettings()

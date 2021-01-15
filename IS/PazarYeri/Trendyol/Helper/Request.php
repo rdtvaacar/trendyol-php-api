@@ -1,6 +1,6 @@
 <?php
 
-namespace IS\PazarYeri\Trendyol\Helper;
+namespace Rdtvaacar\PazarYeri\Trendyol\Helper;
 
 Class Request
 {
@@ -58,7 +58,7 @@ Class Request
 	/**
 	 *
 	 * Service Ayarlarını yapar
-	 * @param string 
+	 * @param string
 	 *
 	 */
 	public function __construct($apiUrl, $supplierId, $username, $password, $method = 'GET')
@@ -135,7 +135,7 @@ Class Request
 	 * Trendyol için basic auth döndürür
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
-	 * @return string 
+	 * @return string
 	 *
 	 */
 	protected function authorization()
@@ -155,9 +155,9 @@ Class Request
 	{
 
 		$apiUrl = $this->apiUrl;
-		foreach (Format::getUrlSpecialParameters($apiUrl) as $key) 
+		foreach (Format::getUrlSpecialParameters($apiUrl) as $key)
 		{
-			if (isset($requestData[$key])) 
+			if (isset($requestData[$key]))
 			{
 				$apiUrl = str_replace('{' . $key . '}',  $requestData[$key], $apiUrl);
 				unset($requestData[$key]);
@@ -181,7 +181,7 @@ Class Request
 	 * @param array $query
 	 * @param array $data
 	 * @param boolean $authorization
-	 * @return array 
+	 * @return array
 	 *
 	 */
 	public function getResponse($query, $data, $authorization = true)
@@ -192,9 +192,9 @@ Class Request
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $this->getApiUrl($requestData));
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $this->method);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_HEADER, false);
-		curl_setopt($ch, CURLOPT_TIMEOUT, 20);	
+		curl_setopt($ch, CURLOPT_TIMEOUT, 20);
 
 		if ($authorization) {
 			curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Basic ' . $this->authorization()));

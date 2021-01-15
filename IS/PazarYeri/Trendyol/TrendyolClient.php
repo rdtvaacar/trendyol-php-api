@@ -1,8 +1,8 @@
 <?php
 
-namespace IS\PazarYeri\Trendyol;
+namespace Rdtvaacar\PazarYeri\Trendyol;
 
-use IS\PazarYeri\Trendyol\Helper\Gateway;
+use Rdtvaacar\PazarYeri\Trendyol\Helper\Gateway;
 
 Class TrendyolClient extends Gateway
 {

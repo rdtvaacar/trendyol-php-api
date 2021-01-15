@@ -53,8 +53,8 @@ composer require ismail0234/trendyol-php-api
 
 include "vendor/autoload.php";
 
-use IS\PazarYeri\Trendyol\TrendyolClient;
-use IS\PazarYeri\Trendyol\Helper\TrendyolException;
+use Rdtvaacar\PazarYeri\Trendyol\TrendyolClient;
+use Rdtvaacar\PazarYeri\Trendyol\Helper\TrendyolException;
 
 $trendyol = new TrendyolClient(); 
 $trendyol->setSupplierId(100000);
@@ -247,7 +247,7 @@ Trendyol Tarafından sipariş bildirimleri için bir webhook verilmediği için 
 
 include "vendor/autoload.php";
 
-use IS\PazarYeri\Trendyol\TrendyolClient;
+use Rdtvaacar\PazarYeri\Trendyol\TrendyolClient;
 
 $trendyol = new TrendyolClient(); 
 $trendyol->setSupplierId(100000);

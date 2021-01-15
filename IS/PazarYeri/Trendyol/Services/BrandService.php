@@ -1,8 +1,8 @@
 <?php
 
-namespace IS\PazarYeri\Trendyol\Services;
+namespace Rdtvaacar\PazarYeri\Trendyol\Services;
 
-use IS\PazarYeri\Trendyol\Helper\Request;
+use Rdtvaacar\PazarYeri\Trendyol\Helper\Request;
 
 Class BrandService extends Request
 {
@@ -36,7 +36,7 @@ Class BrandService extends Request
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
 	 * @param string $degisken
-	 * @return string 
+	 * @return string
 	 *
 	 */
 	public function getBrands($size = 100, $pageId = 0)
@@ -52,7 +52,7 @@ Class BrandService extends Request
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
 	 * @param string $degisken
-	 * @return string 
+	 * @return string
 	 *
 	 */
 	public function getBrandByName($brandName)

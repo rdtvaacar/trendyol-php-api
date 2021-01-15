@@ -1,8 +1,8 @@
 <?php
 
-namespace IS\PazarYeri\Trendyol\Helper;
+namespace Rdtvaacar\PazarYeri\Trendyol\Helper;
 
-use IS\PazarYeri\Trendyol\Services;
+use Rdtvaacar\PazarYeri\Trendyol\Services;
 
 Class GateWay
 {
@@ -33,7 +33,7 @@ Class GateWay
 	 * @description REST Api için kabul edilen servisler
 	 *
 	 */
-	protected $allowedServices = array( 
+	protected $allowedServices = array(
 		'brand'    => 'BrandService',
 		'cargo'    => 'CargoService',
 		'category' => 'CategoryService',
@@ -45,7 +45,7 @@ Class GateWay
 	/**
 	 *
 	 * @description REST Api servislerinin ilk çağırma için hazırlanması
-	 * @param string 
+	 * @param string
 	 * @return service
 	 *
 	 */
@@ -69,16 +69,16 @@ Class GateWay
      *
      * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
      * @param string $serviceName
-     * @return string 
+     * @return string
      *
      */
     protected function createServiceInstance($serviceName)
     {
-    	$serviceName = "IS\PazarYeri\Trendyol\Services\\" .  $serviceName;
+    	$serviceName = "Rdtvaacar\PazarYeri\Trendyol\Services\\" .  $serviceName;
     	if (!class_exists($serviceName)) {
 			throw new TrendyolException("Geçersiz Servis!");
     	}
 		return new $serviceName($this->apiSupplierId, $this->apiUsername, $this->apiPassword);
     }
-    
+
 }

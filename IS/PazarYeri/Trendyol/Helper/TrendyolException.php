@@ -1,5 +1,5 @@
 <?php
 
-namespace IS\PazarYeri\Trendyol\Helper;
+namespace Rdtvaacar\PazarYeri\Trendyol\Helper;
 
 Class TrendyolException extends \Exception {}
